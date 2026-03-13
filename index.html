@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegan Burger Boss</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="restaurant-container">
+        <header id="restaurant-header">
+            <div class="logo">
+                <h1>Vegan Boss</h1>
+            </div>
+            <div id="stats-board">
+                <div class="stat-box">
+                    <span class="stat-label">Bank</span>
+                    <span id="money" class="stat-value text-success">$50.00</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Rating</span>
+                    <span id="rating-value" class="stat-value text-accent">1.0</span>
+                </div>
+                <button id="open-management-btn" class="header-action-btn">
+                    🏢 Manage
+                </button>
+            </div>
+        </header>
+
+        <main id="kitchen-area">
+            <div id="ticket-rail-container">
+                <div id="ticket-rail"></div>
+                <div id="tickets-container">
+                    <!-- Active order tickets -->
+                </div>
+            </div>
+
+            <div id="prep-station">
+                <div id="plate-area">
+                    <div id="current-burger" class="burger-stack">
+                        <!-- Assembled ingredients -->
+                    </div>
+                </div>
+                <div class="cost-indicator">Cost: <span id="current-cost" class="text-danger">$0.00</span></div>
+            </div>
+
+            <div id="ingredient-station">
+                <h2>Vegan Bins</h2>
+                <div id="controls">
+                    <!-- Dynamic Bins -->
+                </div>
+            </div>
+        </main>
+        
+        <div id="action-buttons">
+            <button id="serve-btn" class="action-btn serve-bell">🛎️ ORDER UP!</button>
+            <button id="trash-btn" class="action-btn trash-can">🗑️ Trash</button>
+        </div>
+
+        <!-- HIDDEN MANAGEMENT DRAWER -->
+        <div id="management-drawer" class="drawer-overlay hidden">
+            <div class="drawer-content">
+                <div class="drawer-header">
+                    <h2>Management Office</h2>
+                    <button id="close-management-btn" class="close-btn">&times;</button>
+                </div>
+                <div id="upgrades-container">
+                    <!-- Upgrades -->
+                </div>
+            </div>
+        </div>
+
+        <div id="message-overlay" class="hidden">
+            <p id="message-text"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

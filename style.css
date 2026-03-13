@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
+:root {
+  --primary: #27ae60;
+  --primary-dark: #1e8449;
+  --secondary: #2c3e50;
+  --accent: #f1c40f;
+  --bg-color: #f8f9fa;
+  --stainless: linear-gradient(180deg, #bdc3c7 0%, #ecf0f1 50%, #bdc3c7 100%);
+  --wood: linear-gradient(90deg, #5d4037 0%, #8d6e63 50%, #5d4037 100%);
+  
+  /* Food Colors */
+  --bun: #d35400;
+  --patty: #5d4037;
+  --cheese: #f1c40f;
+  --spinach: #2ecc71;
+  --tomato: #e74c3c;
+  --onion: #fdfefe;
+  --pickle: #16a085;
+  --bacon: #a04000;
+  
+  /* Dynamic sizing */
+  --ing-width: 140px;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #1b5e20;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#restaurant-container {
+  background: var(--bg-color);
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* --- MODERN HEADER --- */
+#restaurant-header {
+  background: var(--secondary);
+  color: white;
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid var(--primary);
+  flex-shrink: 0;
+  z-index: 100;
+}
+
+.logo h1 { 
+  margin: 0; 
+  font-family: 'Bebas Neue', sans-serif; 
+  font-size: 1.4rem; 
+  letter-spacing: 1px;
+  color: var(--primary);
+}
+
+#stats-board {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.stat-box { text-align: right; }
+.stat-label { font-size: 0.5rem; text-transform: uppercase; color: #95a5a6; }
+.stat-value { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; line-height: 1; display: block; }
+.text-success { color: var(--primary); }
+.text-accent { color: var(--accent); }
+
+.header-action-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 2px 0 var(--primary-dark);
+}
+
+/* --- TICKET RAIL --- */
+#ticket-rail-container {
+  background: #34495e;
+  padding: 5px 0 10px 0;
+  border-bottom: 3px solid #2c3e50;
+  flex-shrink: 0;
+}
+
+#tickets-container {
+  display: flex;
+  gap: 10px;
+  padding: 0 15px;
+  min-height: 140px;
+  overflow-x: auto;
+  align-items: flex-start;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ticket {
+  background: #fff;
+  color: #333;
+  min-width: 110px;
+  padding: 10px 8px;
+  font-family: 'Courier Prime', monospace;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+  position: relative;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 95% 100%, 85% 95%, 75% 100%, 65% 95%, 55% 100%, 45% 95%, 35% 100%, 25% 95%, 15% 100%, 5% 95%, 0% 100%);
+  animation: slideInDown 0.4s ease-out;
+  border-top: 4px solid transparent;
+}
+
+.secret-ticket { background: #fff9c4; border-top-color: var(--accent); color: #5d4037; }
+.ticket-header { font-weight: 700; border-bottom: 1px solid #ddd; margin-bottom: 5px; text-align: center; font-size: 0.75rem;}
+.ticket-items { display: flex; flex-direction: column; gap: 1px; font-size: 0.65rem; }
+.ticket-price { margin-top: 5px; border-top: 1px dashed #666; padding-top: 3px; font-weight: bold; text-align: right; font-size: 0.7rem; }
+
+/* --- KITCHEN AREA --- */
+#kitchen-area {
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#prep-station {
+  display: flex;
+  flex-direction: column;
+  background: var(--stainless);
+  padding: 1.5rem 1rem;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+#plate-area {
+  background: white;
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border: 6px solid #f1f1f1;
+  flex-shrink: 0;
+}
+
+.burger-stack { 
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.65); 
+  /* Removed height: 100% to prevent stretching/incorrect centering */
+}
+
+.cost-indicator { text-align: center; font-weight: bold; font-size: 0.8rem; margin-top: 10px; color: #7f8c8d; }
+
+/* Ingredients - Centralized Sizing */
+.ingredient { width: var(--ing-width); height: 20px; position: relative; z-index: 5; }
+.ingredient.bottom-bun { background: var(--bun); height: 35px; border-radius: 5px 5px 25px 25px; }
+.ingredient.top-bun { background: var(--bun); height: 45px; border-radius: 40px 40px 5px 5px; }
+.ingredient.top-bun::after { content: ''; position: absolute; top: 10px; left: 20%; right: 20%; bottom: 10px; background-image: radial-gradient(#f1c40f 20%, transparent 20%); background-size: 15px 15px; opacity: 0.6; }
+.ingredient.patty { background: var(--patty); height: 28px; border-radius: 12px; background-image: repeating-linear-gradient(90deg, transparent, transparent 15px, rgba(0,0,0,0.15) 15px, rgba(0,0,0,0.15) 17px); }
+.ingredient.cheese { background: var(--cheese); height: 8px; width: calc(var(--ing-width) + 10px); border-radius: 2px; }
+.ingredient.lettuce { background: var(--spinach); height: 12px; width: calc(var(--ing-width) + 5px); border-radius: 40% 60% 50% 50%; }
+.ingredient.tomato { background: var(--tomato); height: 18px; width: calc(var(--ing-width) - 10px); border-radius: 50%; }
+.ingredient.onion { background: #fff; height: 10px; width: calc(var(--ing-width) - 20px); border-radius: 20px; border: 2px solid #ddd; }
+.ingredient.pickles { background: var(--pickle); height: 10px; width: calc(var(--ing-width) / 3); border-radius: 50%; box-shadow: 50px 0 var(--pickle), -50px 0 var(--pickle); }
+.ingredient.bacon { background: var(--bacon); height: 12px; width: calc(var(--ing-width) + 15px); border-radius: 4px; background-image: repeating-linear-gradient(90deg, transparent, transparent 15px, rgba(255,255,255,0.1) 15px, rgba(255,255,255,0.1) 25px); }
+
+/* --- INGREDIENT STATION - MOBILE OPTIMIZED --- */
+#ingredient-station { 
+  background: #2c3e50; 
+  padding: 0.8rem 0;
+  flex-shrink: 0;
+}
+
+#ingredient-station h2 { 
+  color: var(--primary); 
+  font-family: 'Bebas Neue', sans-serif; 
+  font-size: 0.9rem; 
+  margin: 0 0 0.5rem 1rem; 
+}
+
+#controls {
+  display: flex;
+  gap: 10px;
+  padding: 0 1rem 0.5rem 1rem;
+  overflow-x: auto; /* Horizontal scroll for bins */
+  -webkit-overflow-scrolling: touch;
+}
+
+.ingredient-bin {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 10px 8px;
+  min-width: 85px; /* Fixed width for consistency */
+  flex-shrink: 0;
+  text-align: center;
+  cursor: pointer;
+  --ing-width: 50px; /* Small icons in bins */
+}
+
+.ingredient-bin.locked { opacity: 0.2; filter: grayscale(1); }
+.bin-icon { height: 25px; display: flex; justify-content: center; align-items: center; margin-bottom: 6px; }
+.bin-name { display: block; color: white; font-size: 0.65rem; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bin-cost { display: block; color: var(--accent); font-size: 0.65rem; font-family: 'Bebas Neue', sans-serif; }
+
+/* --- ACTION BAR --- */
+#action-buttons {
+  background: #1a252f;
+  padding: 12px;
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.action-btn { flex: 1; border: none; padding: 14px; border-radius: 8px; font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; cursor: pointer; color: white; }
+.serve-bell { background: var(--primary); box-shadow: 0 4px 0 #1e8449; }
+.trash-can { background: #e74c3c; box-shadow: 0 4px 0 #c0392b; }
+
+/* --- MANAGEMENT DRAWER --- */
+.drawer-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.drawer-content {
+    background: #ecf0f1;
+    width: 100%;
+    max-height: 85%;
+    border-radius: 20px 20px 0 0;
+    padding: 1.5rem 1rem;
+    overflow-y: auto;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.5);
+    animation: slideUp 0.3s ease-out;
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.drawer-header h2 { margin: 0; font-family: 'Bebas Neue', sans-serif; color: var(--secondary); font-size: 1.8rem; }
+
+.close-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+#upgrades-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.upgrade-card { background: white; border-radius: 12px; padding: 12px; display: flex; align-items: center; justify-content: space-between; border: 1px solid #ddd; text-align: left; }
+.upgrade-info { flex-grow: 1; }
+.upgrade-card h3 { margin: 0; font-size: 0.85rem; color: var(--secondary); }
+.upgrade-card p { font-size: 0.7rem; color: #7f8c8d; margin: 2px 0; }
+.buy-btn { background: var(--primary); color: white; border: none; padding: 8px 12px; border-radius: 6px; font-weight: bold; font-size: 0.75rem; min-width: 90px; }
+
+.hidden { display: none !important; }
+
+/* --- DESKTOP --- */
+@media (min-width: 768px) {
+  body { padding: 20px; }
+  #restaurant-container { height: 90vh; max-height: 850px; border-radius: 20px; }
+  .logo h1 { font-size: 2rem; }
+  .stat-value { font-size: 1.6rem; }
+  #ticket-rail-container { padding: 10px 0 20px 0; }
+  #tickets-container { min-height: 180px; }
+  .ticket { min-width: 140px; padding: 15px 10px; }
+  #prep-station { flex-direction: row; padding: 2rem; align-items: center; }
+  #plate-area { width: 260px; height: 260px; }
+  .burger-stack { transform: scale(0.9); }
+  
+  /* Horizontal scroll is still cool on desktop, but let's allow more bins */
+  .ingredient-bin { min-width: 100px; }
+  
+  #upgrades-container { display: grid; grid-template-columns: repeat(2, 1fr); }
+}
+
+@keyframes slideInDown { 0% { transform: translateY(-100%); } 100% { transform: translateY(0); } }
+@keyframes slideUp { 0% { transform: translateY(100%); } 100% { transform: translateY(0); } }
