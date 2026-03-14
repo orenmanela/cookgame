@@ -1,20 +1,33 @@
-# 🍔 Burger Boss Restaurant
+# 🌿 Vegan Burger Boss Restaurant
 
-A high-stakes restaurant tycoon game built with Vanilla JS. Manage your bank account, unlock premium ingredients, and keep up with the busy ticket rail!
+A high-fidelity, plant-based restaurant tycoon game built with Vanilla JavaScript. Manage your finances, build a reputation, and keep up with the fast-paced kitchen!
 
-## 🎮 How to Play
-1. **Watch the Ticket Rail:** New orders appear as paper tickets at the top.
-2. **Assemble:** Click the ingredient bins to stack ingredients on your plate.
-3. **Serve:** When your burger matches a ticket, hit the 🛎️ **ORDER UP!** bell.
-4. **Grow:** Use your profits in the **Management Office** to unlock new ingredients like Bacon, Cheese, and Avocado.
-5. **Survive:** Don't go bankrupt! Trashing food or serving wrong orders costs you money.
+## 🎮 Current Game State
+- **Theme:** 100% Vegan / Plant-Based.
+- **Visuals:** Premium Indie look with realistic CSS textures (grill marks, sesame seeds, leafy spinach).
+- **Platform:** Mobile-first, fully responsive (optimized for iOS/Android and Desktop).
+- **Deployment:** Live on GitHub Pages at [https://orenmanela.github.io/cookgame/](https://orenmanela.github.io/cookgame/).
+
+## 🚀 Key Features
+1. **Dynamic Kitchen:** A stainless-steel prep station with a ceramic plate and horizontal-scrolling ingredient bins.
+2. **Ticket Rail:** Manage up to 4 concurrent orders hanging at the top of your screen.
+3. **Economy System:** Every ingredient costs money. Serve correct orders to gain profit; mistakes or waste cost you cash!
+4. **Management Office:** A collapsible hidden menu (accessible via the 🏢 **Manage** button) where you can:
+   - Unlock new ingredients (Spinach, Tomato, Seitan Bacon, etc.).
+   - Purchase a **Secret Menu Permit** to unlock legendary, high-profit recipes.
+5. **Prestige System:** Successfully serving orders increases your **Restaurant Rating**, which in turn increases the price customers are willing to pay.
 
 ## 🛠️ Tech Stack
-- **HTML5**: Semantic restaurant structure.
-- **CSS3**: Custom "Stainless Steel" kitchen aesthetic and procedural animations.
-- **JavaScript**: Real-time business logic, economy system, and order verification.
+- **HTML5**: Semantic structure.
+- **CSS3**: Advanced gradients, `dvh` units for mobile, and procedural animations.
+- **Vanilla JavaScript**: Logic for order generation, economy, stacking, and collision-less verification.
 
-## 📁 File Structure
-- `index.html`: The restaurant front-end.
-- `style.css`: The kitchen and UI design.
-- `script.js`: The "brain" of the restaurant.
+## 📁 Project Structure
+- `index.html`: The main restaurant front-end and collapsible drawer.
+- `style.css`: The "Premium Indie" stylesheet and responsive layouts.
+- `script.js`: The restaurant's core logic and state management.
+- `GEMINI.md`: This documentation of progress and features.
+
+## 📦 How to Share
+1. The game is already hosted on GitHub Pages.
+2. For local play, unzip the project and open `index.html`.
