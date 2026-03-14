@@ -158,7 +158,8 @@ body {
   flex-shrink: 0;
 }
 
-.burger-stack { transform: scale(0.55); } /* Smaller burger scale */
+.burger-stack { 
+  display: flex;
   flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
